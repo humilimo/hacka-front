@@ -50,33 +50,39 @@ export default function RecolheFlow() {
               Seu gesto ajuda a tornar Recife uma cidade mais limpa, consciente e sustentável.
             </p>
             <div className="w-full mb-4">
-              <label className="block text-gray-700 font-medium mb-1">
+              <label className="block text-[#000000] font-medium mb-1">
                 1. Confirme o número da lixeira que você irá utilizar
               </label>
               <span className="block text-xs text-gray-500 mb-2">
                 Encontre essa identificação do lado do QR Code que você usou.
               </span>
               <div className="flex flex-col items-center mt-2">
-                <p className="text-center text-gray-600 mb-6 text-sm" style={{ fontFamily: 'Public Sans, sans-serif', fontWeight: 600, fontSize: 16, color: '#000000' }}>
+                <p className="text-center mb-6 text-sm" 
+                  style={{ fontFamily: 'Public Sans, sans-serif', fontWeight: 600, fontSize: 16, color: '#000000' }}>
                 {bin.name}
                 </p>
-                <a href="#" className="text-xs text-green-700 underline inline-block">Essa não é a lixeira?</a>
+                <a href="#" style={{ color: '#1F8033', textDecoration: 'underline', fontStyle: 'italic'}} className="text-xs underline inline-block">Essa não é a lixeira?</a>
                 <div className="flex items-center mt-2">
                     <input
                     id="confirm-bin"
                     type="checkbox"
                     checked={binConfirmed}
                     onChange={e => setBinConfirmed(e.target.checked)}
-                    className="mr-2"
+                    className="mr-2 accent-[#1F8033]"
                     />
-                    <label htmlFor="confirm-bin" className="text-sm text-gray-700">
+                    <label htmlFor="confirm-bin" className="text-sm text-[#1F8033]">
                         Confirmo que esta é a lixeira correta
                     </label>
                 </div>
               </div>
             </div>
             <button
-              className={`w-full py-3 rounded-lg font-semibold mt-4 transition ${binConfirmed ? 'bg-green-700 text-white hover:bg-green-800' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+              style={{
+                backgroundColor: binConfirmed ? "#1F8033" : "#e5e7eb",
+                color: binConfirmed ? "#FAFAFA" : "#9ca3af",
+                cursor: binConfirmed ? "pointer" : "not-allowed",
+              }}
+              className="w-full py-3 border border-[#1F8033] rounded-lg font-semibold mt-4 transition"
               onClick={handleConfirmBin}
               disabled={!binConfirmed}
             >
@@ -100,7 +106,12 @@ export default function RecolheFlow() {
               </div>
             </div>
             <button
-              className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold mt-4 transition hover:bg-green-800"
+            style={{
+              backgroundColor: binConfirmed ? "#1F8033" : "#e5e7eb",
+              color: binConfirmed ? "#FAFAFA" : "#9ca3af",
+              cursor: binConfirmed ? "pointer" : "not-allowed",
+            }}
+              className="w-full py-3 rounded-lg font-semibold mt-4 transition"
               onClick={handleFinishDeposit}
             >
               Terminei de descartar
@@ -110,7 +121,7 @@ export default function RecolheFlow() {
         {/* Step 3: Calculating */}
         {step === 2 && (
           <>
-            <p className="text-center text-gray-700 mb-6">
+            <p className="text-center text-[#1F8033] mb-6">
               Aguarde um momento enquanto calculamos a quantidade do lixo descartado
             </p>
             <div className="flex flex-col items-center">
@@ -140,7 +151,12 @@ export default function RecolheFlow() {
               </div>
             </div>
             <button
-              className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold mt-4 transition hover:bg-green-800"
+              style={{
+                backgroundColor: binConfirmed ? "#1F8033" : "#e5e7eb",
+                color: binConfirmed ? "#FAFAFA" : "#9ca3af",
+                cursor: binConfirmed ? "pointer" : "not-allowed",
+              }}
+              className="w-full py-3 rounded-lg font-semibold mt-4 transition"
               onClick={handleViewBalance}
             >
               Ver saldo
