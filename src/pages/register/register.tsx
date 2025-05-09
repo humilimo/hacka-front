@@ -11,14 +11,14 @@ export default function RecolheFlow() {
   const [coins, setCoins] = useState(10); // Placeholder value
 
   // Handlers
-  const handleContinue = () => setStep(1);
-  const handleConfirmBin = () => setStep(2);
+  const handleContinue = () => setStep(0);
+  const handleConfirmBin = () => setStep(1);
   const handleFinishDeposit = () => {
-    setStep(3);
+    setStep(2);
     setIsCalculating(true);
     setTimeout(() => {
       setIsCalculating(false);
-      setStep(4);
+      setStep(3);
     }, 1500); // Simulate calculation
   };
   const handleViewBalance = () => {
@@ -27,11 +27,11 @@ export default function RecolheFlow() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-        <div className="w-full flex justify-center mt-8 mb-4">
+        <div className="w-full flex justify-center">
             <img src="src/assets/prefeitura-recife.png" alt="Capibas Logo" className="h-10" />
         </div>
       {/* Header */}
-      <div className="w-full flex justify-center mt-8 mb-4">
+      <div className="w-full flex justify-center">
         <img src="/logo-recife.png" alt="Recife Logo" className="h-10" />
       </div>
       {/* Main Card */}
@@ -42,23 +42,8 @@ export default function RecolheFlow() {
         >
           ReColhe
         </h1>
-        {/* Step 0: Welcome */}
-        {step === 0 && (
-          <>
-            <p className="text-black text-center font-semibold mb-2">Parabéns pela iniciativa! <span role="img" aria-label="celebrate">👏</span></p>
-            <p className="text-black text-center font-light mb-6 text-sm" style={{ fontFamily: 'Public Sans, sans-serif', fontSize: 16, color: '#000000' }}>
-              Seu gesto ajuda a tornar Recife uma cidade mais limpa, consciente e sustentável.
-            </p>
-            <button
-              className="w-full bg-green-700 text-white py-3 rounded-lg font-semibold mt-8 transition hover:bg-green-800"
-              onClick={handleContinue}
-            >
-              Continuar
-            </button>
-          </>
-        )}
         {/* Step 1: Select Bin & Confirm */}
-        {step === 1 && (
+        {step === 0 && (
           <>
             <p className="text-black text-center font-semibold mb-2">Parabéns pela iniciativa! <span role="img" aria-label="celebrate">👏</span></p>
             <p className="text-black text-center font-light mb-6 text-sm" style={{ fontFamily: 'Public Sans, sans-serif', fontSize: 16, color: '#000000' }}>
@@ -100,7 +85,7 @@ export default function RecolheFlow() {
           </>
         )}
         {/* Step 2: Deposit Trash */}
-        {step === 2 && (
+        {step === 1 && (
           <>
             <p className="text-black text-center font-semibold mb-2">Parabéns pela iniciativa! <span role="img" aria-label="celebrate">👏</span></p>
             <p className="text-black text-center font-light mb-6 text-sm" style={{ fontFamily: 'Public Sans, sans-serif', fontSize: 16, color: '#000000' }}>
@@ -123,7 +108,7 @@ export default function RecolheFlow() {
           </>
         )}
         {/* Step 3: Calculating */}
-        {step === 3 && (
+        {step === 2 && (
           <>
             <p className="text-center text-gray-700 mb-6">
               Aguarde um momento enquanto calculamos a quantidade do lixo descartado
@@ -140,7 +125,7 @@ export default function RecolheFlow() {
           </>
         )}
         {/* Step 4: Result */}
-        {step === 4 && (
+        {step === 3 && (
           <>
             <p className="text-center text-gray-700 mb-4">Você descartou</p>
             <div className="flex flex-col items-center mb-4">
