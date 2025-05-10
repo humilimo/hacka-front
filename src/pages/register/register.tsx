@@ -27,30 +27,45 @@ export default function RecolheFlow() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-        <div className="w-full flex justify-center">
-            <img src="src/assets/prefeitura-recife.png" alt="Capibas Logo" className="h-10" />
-        </div>
       {/* Header */}
-      <div className="w-full flex justify-center">
-        <img src="/logo-recife.png" alt="Recife Logo" className="h-10" />
-      </div>
-      {/* Main Card */}
-      <div className="bg-white shadow-lg rounded-xl w-full max-w-md p-8 flex flex-col items-center">
+      <div className="w-full relative flex justify-center items-center">
+        <div className="relative h-[303px] w-full">
+          <img
+            src="src/assets/header-picture.png"
+            alt="Foto da Header"
+            className="absolute top-0 left-0 h-[300px] w-full object-cover z-0"
+          />
+          <img
+            src="src/assets/green-background-bigger.png"
+            alt="Recife Logo"
+            className="absolute top-0 left-0 h-[303px] w-full object-cover opacity-100 z-10"
+          />
+        </div>
         <h1
-          className="text-4xl font-bold mb-6"
-          style={{ fontFamily: 'Londrina Solid, sans-serif', color: '#1F8033', fontWeight: 400 }}
+          className="text-4xl font-bold text-[#1F8033] text-center absolute z-10 top-[265px]"
+          style={{
+            fontFamily: "Londrina Solid, sans-serif",
+            fontWeight: 700,
+            textShadow:
+              "-5px -5px 0 #FFFFFF, 5px -5px 0 #FFFFFF, -5px 5px 0 #FFFFFF, 5px 5px 0 #FFFFFF, 0px 5px 0 #FFFFFF, 0px -5px 0 #FFFFFF, 5px 0px 0 #FFFFFF, -5px 0px 0 #FFFFFF",
+            letterSpacing: "1px",
+          }}
         >
           ReColhe
         </h1>
+      </div>
+      {/* Main Card */}
+      <div className="bg-white shadow-lg rounded-xl w-full max-w-md p-8 flex flex-col items-center">
         {/* Step 1: Select Bin & Confirm */}
         {step === 0 && (
           <>
-            <p className="text-black text-center font-semibold mb-2">Parabéns pela iniciativa! <span role="img" aria-label="celebrate">👏</span></p>
+            <p className="text-black text-center font-bold mb-2">Parabéns pela iniciativa! <span role="img" aria-label="celebrate">👏</span></p>
             <p className="text-black text-center font-light mb-6 text-sm" style={{ fontFamily: 'Public Sans, sans-serif', fontSize: 16, color: '#000000' }}>
               Seu gesto ajuda a tornar Recife uma cidade mais limpa, consciente e sustentável.
             </p>
+            <div className='w-full h-[1px] bg-[#1F8033] mb-8'/>
             <div className="w-full mb-4">
-              <label className="block text-[#000000] font-medium mb-1">
+              <label className="block text-gray-700 font-sm font-semibold mb-1">
                 1. Confirme o número da lixeira que você irá utilizar
               </label>
               <span className="block text-xs text-gray-500 mb-2">
@@ -97,8 +112,9 @@ export default function RecolheFlow() {
             <p className="text-black text-center font-light mb-6 text-sm" style={{ fontFamily: 'Public Sans, sans-serif', fontSize: 16, color: '#000000' }}>
               Seu gesto ajuda a tornar Recife uma cidade mais limpa, consciente e sustentável.
             </p>
+            <div className='w-full h-[1px] bg-[#1F8033] mb-8'/>
             <div className="w-full mb-6">
-              <label className="block text-gray-700 font-medium mb-2">
+              <label className="block text-gray-700 font-sm font-semibold mb-2">
                 2. Agora deposite seu lixo na lixeira e aperte o botão abaixo para confirmar o descarte.
               </label>
               <div className="flex justify-center my-4">
@@ -121,7 +137,7 @@ export default function RecolheFlow() {
         {/* Step 3: Calculating */}
         {step === 2 && (
           <>
-            <p className="text-center text-[#1F8033] mb-6">
+            <p className="text-center text-[#1F8033] font-sm font-semibold mb-6">
               Aguarde um momento enquanto calculamos a quantidade do lixo descartado
             </p>
             <div className="flex flex-col items-center">
